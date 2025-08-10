@@ -1,11 +1,11 @@
--- local c = require("kanagawa.color")
+-- local c = require("orpheus.color")
 local M = {}
 
----@param colors KanagawaColors
----@param config? KanagawaConfig
+---@param colors OrpheusColors
+---@param config? OrpheusConfig
 function M.setup(colors, config)
     local theme = colors.theme
-    config = config or require("kanagawa").config
+    config = config or require("orpheus").config
 
     return {
         -- *Comment	any comment

@@ -1,4 +1,4 @@
-local c = require("kanagawa.lib.color")
+local c = require("orpheus.lib.color")
 
 --TODO:
 --PreProc needs its own color

@@ -2,11 +2,11 @@ local M = {}
 
 ---@alias ColorSpec string RGB Hex string
 ---@alias ColorTable table<string, ColorSpec>
----@alias KanagawaColorsSpec { palette: ColorTable, theme: ColorTable }
----@alias KanagawaColors { palette: PaletteColors, theme: ThemeColors }
+---@alias OrpheusColorsSpec { palette: ColorTable, theme: ColorTable }
+---@alias OrpheusColors { palette: PaletteColors, theme: ThemeColors }
 
 --- default config
----@class KanagawaConfig
+---@class OrpheusConfig
 M.config = {
     undercurl = true,
     commentStyle = { italic = true },
@@ -18,7 +18,7 @@ M.config = {
     dimInactive = false,
     terminalColors = true,
     colors = { theme = { wave = {}, lotus = {}, dragon = {}, all = {} }, palette = {} },
-    ---@type fun(colors: KanagawaColorsSpec): table<string, table>
+    ---@type fun(colors: OrpheusColorsSpec): table<string, table>
     overrides = function()
         return {}
     end,
@@ -34,19 +34,19 @@ local function check_config(config)
 end
 
 --- update global configuration with user settings
----@param config? KanagawaConfig user configuration
+---@param config? OrpheusConfig user configuration
 function M.setup(config)
     if check_config(config) then
         M.config = vim.tbl_deep_extend("force", M.config, config or {})
     else
-        vim.notify("Kanagawa: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
+        vim.notify("Orpheus: Errors found while loading user config. Using default config.", vim.log.levels.ERROR)
     end
 end
 
 --- load the colorscheme
 ---@param theme? string
 function M.load(theme)
-    local utils = require("kanagawa.utils")
+    local utils = require("orpheus.utils")
 
     theme = theme or M.config.background[vim.o.background] or M.config.theme
     M._CURRENT_THEME = theme
@@ -55,7 +55,7 @@ function M.load(theme)
         vim.cmd("hi clear")
     end
 
-    vim.g.colors_name = "kanagawa"
+    vim.g.colors_name = "orpheus"
     vim.o.termguicolors = true
 
     if M.config.compile then
@@ -66,28 +66,28 @@ function M.load(theme)
         M.compile()
         utils.load_compiled(theme)
     else
-        local colors = require("kanagawa.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("kanagawa.highlights").setup(colors, M.config)
-        require("kanagawa.highlights").highlight(highlights, M.config.terminalColors and colors.theme.term or {})
+        local colors = require("orpheus.colors").setup({ theme = theme, colors = M.config.colors })
+        local highlights = require("orpheus.highlights").setup(colors, M.config)
+        require("orpheus.highlights").highlight(highlights, M.config.terminalColors and colors.theme.term or {})
     end
 end
 
 function M.compile()
-    for theme, _ in pairs(require("kanagawa.themes")) do
-        local colors = require("kanagawa.colors").setup({ theme = theme, colors = M.config.colors })
-        local highlights = require("kanagawa.highlights").setup(colors, M.config)
-        require("kanagawa.utils").compile(theme, highlights, M.config.terminalColors and colors.theme.term or {})
+    for theme, _ in pairs(require("orpheus.themes")) do
+        local colors = require("orpheus.colors").setup({ theme = theme, colors = M.config.colors })
+        local highlights = require("orpheus.highlights").setup(colors, M.config)
+        require("orpheus.utils").compile(theme, highlights, M.config.terminalColors and colors.theme.term or {})
     end
 end
 
-vim.api.nvim_create_user_command("KanagawaCompile", function()
+vim.api.nvim_create_user_command("OrpheusCompile", function()
     for mod, _ in pairs(package.loaded) do
-        if mod:match("^kanagawa%.") then
+        if mod:match("^orpheus%.") then
             package.loaded[mod] = nil
         end
     end
     M.compile()
-    vim.notify("Kanagawa: compiled successfully!", vim.log.levels.INFO)
+    vim.notify("Orpheus: compiled successfully!", vim.log.levels.INFO)
     M.load(M._CURRENT_THEME)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
