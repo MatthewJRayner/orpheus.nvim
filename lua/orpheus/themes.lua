@@ -301,100 +301,99 @@ return {
     lotus = function(palette)
         return {
             ui = {
-                fg         = palette.lotusInk1,
-                fg_dim     = palette.lotusInk2,
-                fg_reverse = palette.lotusGray,
+                fg         = palette.medjatBlack,
+                fg_dim     = palette.medjatGrey,
+                fg_reverse = palette.medjatPapyrusLight,
 
-                bg_dim     = palette.lotusWhite1,
-                bg_gutter  = palette.lotusWhite4,
+                bg_dim     = palette.medjatPapyrusDark,
+                bg_gutter  = palette.medjatPapyrusBase,
+                bg_m3      = palette.medjatPapyrusDark,
+                bg_m2      = palette.medjatPapyrusDark,
+                bg_m1      = palette.medjatPapyrusBase,
+                bg         = palette.medjatPapyrusBase,
+                bg_p1      = palette.medjatPapyrusLight,
+                bg_p2      = palette.medjatPapyrusLight,
 
-                bg_m3      = palette.lotusWhite0,
-                bg_m2      = palette.lotusWhite1,
-                bg_m1      = palette.lotusWhite2,
-                bg         = palette.lotusWhite3,
-                bg_p1      = palette.lotusWhite4,
-                bg_p2      = palette.lotusWhite5,
+                nontext    = palette.medjatGrey,
+                whitespace = palette.medjatGrey,
+                special    = palette.medjatBlue,
 
-                nontext    = palette.lotusViolet1,
-                whitespace = palette.lotusViolet1,
-                special    = palette.lotusViolet2,
-
-                bg_visual  = palette.lotusViolet3,
-                bg_search  = palette.lotusBlue2,
+                bg_visual  = palette.medjatPapyrusDark,
+                bg_search  = palette.medjatPapyrusLight,
 
                 pmenu      = {
-                    fg       = palette.lotusInk2,
+                    fg       = palette.medjatBlack,
                     fg_sel   = "none", -- This is important to make highlights pass-through
-                    bg       = palette.lotusBlue1,
-                    bg_sel   = palette.lotusBlue3,
-                    bg_sbar  = palette.lotusBlue1,
-                    bg_thumb = palette.lotusBlue2,
+                    bg       = palette.medjatPapyrusLight,
+                    bg_sel   = palette.medjatPapyrusBase,
+                    bg_sbar  = palette.medjatPapyrusLight,
+                    bg_thumb = palette.medjatPapyrusBase,
                 },
                 float      = {
-                    fg        = palette.lotusInk2,
-                    bg        = palette.lotusWhite0,
-                    fg_border = palette.lotusGray2,
-                    bg_border = palette.lotusWhite0,
+                    fg        = palette.medjatBlack,
+                    bg        = palette.medjatPapyrusDark,
+                    fg_border = palette.medjatGrey,
+                    bg_border = palette.medjatPapyrusDark,
                 },
             },
             syn = {
-                string     = palette.lotusGreen,
+                string     = palette.medjatBlack,
                 variable   = "none",
-                number     = palette.lotusPink,
-                constant   = palette.lotusOrange,
-                identifier = palette.lotusYellow,
-                parameter  = palette.lotusBlue5,
-                fun        = palette.lotusBlue4,
-                statement  = palette.lotusViolet4,
-                keyword    = palette.lotusViolet4,
-                operator   = palette.lotusYellow2,
-                preproc    = palette.lotusRed,
-                type       = palette.lotusAqua,
-                regex      = palette.lotusYellow2,
-                deprecated = palette.lotusGray3,
-                comment    = palette.lotusGray3,
-                punct      = palette.lotusTeal1,
-                special1   = palette.lotusTeal2,
-                special2   = palette.lotusRed,
-                special3   = palette.lotusRed,
+                number     = palette.medjatRed,
+                constant   = palette.medjatRed,
+                identifier = palette.medjatBlack,
+                parameter  = palette.medjatBlue,
+                fun        = palette.medjatRed,
+                statement  = palette.medjatRed,
+                keyword    = palette.medjatRed,
+                operator   = palette.medjatBlack,
+                preproc    = palette.medjatRed,
+                type       = palette.medjatBlue,
+                regex      = palette.medjatRed,
+                deprecated = palette.medjatGrey,
+                comment    = palette.medjatGrey,
+                punct      = palette.medjatBlack,
+                special1   = palette.medjatBlue,
+                special2   = palette.medjatRed,
+                special3   = palette.medjatRed,
             },
             vcs = {
-                added   = palette.lotusGreen2,
-                removed = palette.lotusRed2,
-                changed = palette.lotusYellow3,
+                added   = palette.medjatGreen,
+                removed = palette.medjatRed,
+                changed = palette.medjatBlue,
             },
             diff = {
-                add    = palette.lotusGreen3,
-                delete = palette.lotusRed4,
-                change = palette.lotusCyan,
-                text   = palette.lotusYellow4,
+                add    = palette.medjatGreen,
+                delete = palette.medjatRed,
+                change = palette.medjatBlue,
+                text   = palette.medjatPapyrusLight,
             },
             diag = {
-                error   = palette.lotusRed3,
-                ok      = palette.lotusGreen,
-                warning = palette.lotusOrange2,
-                info    = palette.lotusTeal3,
-                hint    = palette.lotusAqua2,
+                error   = palette.medjatRed,
+                ok      = palette.medjatGreen,
+                warning = palette.medjatRed,
+                info    = palette.medjatBlue,
+                hint    = palette.medjatBlue,
             },
             term = {
-                palette.sumiInk3, -- black
-                palette.lotusRed, -- red
-                palette.lotusGreen, -- green
-                palette.lotusYellow, -- yellow
-                palette.lotusBlue4, -- blue
-                palette.lotusPink, -- magenta
-                palette.lotusAqua, -- cyan
-                palette.lotusInk1, -- white
-                palette.lotusGray3 , -- bright black
-                palette.lotusRed2, -- bright red
-                palette.lotusGreen2, -- bright green
-                palette.lotusYellow2, -- bright yellow
-                palette.lotusTeal2, -- bright blue
-                palette.lotusViolet4, -- bright magenta
-                palette.lotusAqua2, -- bright cyan
-                palette.lotusInk2, -- bright white
-                palette.lotusOrange2, -- extended color 1
-                palette.lotusRed3, -- extended color 2
+                palette.medjatBlack, -- black
+                palette.medjatRed, -- red
+                palette.medjatGreen, -- green
+                palette.medjatBlue, -- yellow
+                palette.medjatBlue, -- blue
+                palette.medjatRed, -- magenta
+                palette.medjatGreen, -- cyan
+                palette.medjatPapyrusBase, -- white
+                palette.medjatGrey , -- bright black
+                palette.medjatRed, -- bright red
+                palette.medjatGreen, -- bright green
+                palette.medjatBlue, -- bright yellow
+                palette.medjatBlue, -- bright blue
+                palette.medjatRed, -- bright magenta
+                palette.medjatGreen, -- bright cyan
+                palette.medjatBlack, -- bright white
+                palette.medjatRed, -- extended color 1
+                palette.medjatBlue, -- extended color 2
             },
         }
     end,
