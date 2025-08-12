@@ -342,7 +342,7 @@ return {
                 number     = palette.medjatRed,
                 constant   = palette.medjatRed,
                 identifier = palette.medjatBlack,
-                parameter  = palette.medjatBlue,
+                parameter  = palette.medjatRed,
                 fun        = palette.medjatRed,
                 statement  = palette.medjatRed,
                 keyword    = palette.medjatRed,
